@@ -1,0 +1,32 @@
+:root{
+--primary: radial-gradient(
+  circle at top right,
+  rgb(255, 0, 0) 0%,
+  rgb(255, 0, 0) 10%,
+  rgb(21, 21, 77) 50%,
+  rgb(140, 0, 255) 80%,
+  rgb(140, 0, 255) 100%
+);
+  --text-light: rgb(231, 219, 219);
+  --background:linear-gradient(145deg, #1c1c1c, #2a2a2a);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: var(--background);
+  width:100vw;
+  height:100vh;
+}
+
+.container{
+  border-radius: 1rem;
+  max-width:70vw;
+  margin:auto;
+  padding:2rem;
+  color:var(--text-light);
+  background:var(--primary);
+  margin-top:25%;
+}
