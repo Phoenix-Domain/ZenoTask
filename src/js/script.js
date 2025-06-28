@@ -22,6 +22,10 @@ function addTask (){
 
     //append "delete" text inside button
     delBtn.textContent = "Delete";
+
+    delBtn.addEventListener('click', function (){
+      newList.remove();
+    })
     
     //append taskValue to list
 
