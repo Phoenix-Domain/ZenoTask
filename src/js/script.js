@@ -5,8 +5,10 @@ const task = document.querySelector('#task');
 const addTask = document.querySelector('#addBtn');
 
 const list = document.querySelector('#list');
+;
 
-const listArr = [];
+let listArr = JSON.parse(localStorage.getItem('listArray')) || [];
+
 addBtn.addEventListener('click', e => {
   e.preventDefault(); //prevent default form behaviour
 
@@ -38,7 +40,7 @@ addBtn.addEventListener('click', e => {
   } else{
     alert('Please add a task')
   }
-  console.log(listArr)
+  localStorage.setItem('listArray', JSON.stringify(listArr))
 })
 
 
