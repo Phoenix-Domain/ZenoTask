@@ -6,6 +6,7 @@ const addTask = document.querySelector('#addBtn');
 
 const list = document.querySelector('#list');
 
+const listArr = [];
 addBtn.addEventListener('click', e => {
   e.preventDefault(); //prevent default form behaviour
 
@@ -22,9 +23,12 @@ addBtn.addEventListener('click', e => {
 
   newList.textContent = value;
 
+  listArr.push(value); // push list into list array
+
   newList.append(delBtn)
 
   list.append(newList);
+
 
   task.value = ''; //reset input value
 
@@ -34,5 +38,8 @@ addBtn.addEventListener('click', e => {
   } else{
     alert('Please add a task')
   }
+  console.log(listArr)
 })
+
+
 
