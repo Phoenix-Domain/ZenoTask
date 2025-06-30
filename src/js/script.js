@@ -1,47 +1,21 @@
+const body = document.querySelector('body');
 
 const task = document.querySelector('#task');
 
-const list = document.querySelector('#list');
+const addTask = document.querySelector('#addBtn');
 
-const addBtn = document.querySelector('#addBtn');
+const list = document.querySelector('#list')
 
-addBtn.addEventListener('click', addTask)
+addBtn.addEventListener('click', e => {
+  e.preventDefault(); //prevent default form behaviour
 
-
-function addTask (){
-
-  // get task value
-  let taskValue = task.value;
-
-  //check if task value is empty
-  if(taskValue){
-    //create a list
-    let newList = document.createElement('li');
-    //create a delete button
-    let delBtn = document.createElement('button');
-
-    //append "delete" text inside button
-    delBtn.textContent = "Delete";
-
-    delBtn.addEventListener('click', function (){
-      newList.remove();
-    })
-    
-    //append taskValue to list
-
-    newList.textContent = taskValue;
-    //append delete button to list
-
-    newList.appendChild(delBtn)
-
-    //add list to list section
-
-    list.appendChild(newList);
-
-  } else{
-    alert ('Please Input a task')
-  }
+  const value = task.value; // get task input
   
-}
+  let newList = document.createElement('li'); //create new list
 
-//todo:add error message
+  newList.textContent = value;
+
+  list.append(newList);
+
+  task.value = ''; //reset input value
+})
