@@ -30,3 +30,16 @@ body{
   background:var(--primary);
   margin-top:25%;
 }
+
+.delBtn{
+  margin: 0.2rem 2rem;
+  padding:0.7rem 2rem;
+  border-radius:2rem;
+  border:none;
+  transition:all 0.3s ease-in-out
+}
+
+.delBtn:hover{
+  background-color: blue;
+  color:white;
+}
