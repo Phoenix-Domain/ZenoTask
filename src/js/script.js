@@ -2,22 +2,27 @@ const task = document.querySelector('#task');
 const addBtn = document.querySelector('#addBtn');
 const list = document.querySelector('#list');
 
+const listArray = JSON.parse(localStorage.getItem('Data')) || [];
+display();
+
 addBtn.addEventListener('click', e => {
     e.preventDefault();
     addTask();
 });
 
-const addTask = () => {
+function addTask(){
     const taskInput = task.value;
 
     createList(taskInput);
 
-    addToArray(taskInput);
+    listArray.push(taskInput);
+
+    storeArray(listArray);
 
     task.value = "";
 }
 
-const createList = (input) => {
+function createList(input){
     const newList = document.createElement('li');
 
     const delBtn = document.createElement('button');
@@ -34,15 +39,23 @@ const createList = (input) => {
 
     delBtn.addEventListener('click', ()=>{
       deleteTask(newList);
-    })
+    });
+
+    
 }
 
 const deleteTask = item => {
     item.remove();
 }
 
-const addToArray = item => {
-  const listArray = [];
 
-  
+
+function storeArray(arr){
+    localStorage.setItem('Data',JSON.stringify(arr))
 }
+
+function display(){
+    listArray.forEach(x => addTask(x))
+}
+
+
