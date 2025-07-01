@@ -1,42 +1,48 @@
-const body = document.querySelector('body');
-
 const task = document.querySelector('#task');
-
 const addBtn = document.querySelector('#addBtn');
-
 const list = document.querySelector('#list');
 
-const listArr = JSON.parse(localStorage.getItem('listArray')) || [];
+addBtn.addEventListener('click', e => {
+    e.preventDefault();
+    addTask();
+});
 
-addBtn.addEventListener('click', addList);
+const addTask = () => {
+    const taskInput = task.value;
 
-function addList(e){
+    createList(taskInput);
 
-  e.preventDefault();
-  
-  const taskInput = task.value;
+    addToArray(taskInput);
 
-  const newList = document.createElement('li');
-
-  newList.textContent = taskInput;
-
-  const delBtn = document.createElement('button');
-
-  delBtn.textContent = "Delete";
-
-  delBtn.classList.add('delBtn');
-
-  delBtn.addEventListener('click', function (){
-    delTask(newList);
-  })
-
-  newList.append(delBtn);
-
-  list.append(newList);
-
-  task.value = "";
+    task.value = "";
 }
 
-function delTask(item){
-  item.remove();
+const createList = (input) => {
+    const newList = document.createElement('li');
+
+    const delBtn = document.createElement('button');
+
+    newList.textContent = input;
+
+    delBtn.textContent = "Delete";
+
+    delBtn.classList.add('delBtn');
+    
+    newList.append(delBtn);
+    
+    list.append(newList);
+
+    delBtn.addEventListener('click', ()=>{
+      deleteTask(newList);
+    })
+}
+
+const deleteTask = item => {
+    item.remove();
+}
+
+const addToArray = item => {
+  const listArray = [];
+
+  
 }
