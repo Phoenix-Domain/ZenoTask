@@ -2,7 +2,7 @@ const task = document.querySelector('#task');
 const addBtn = document.querySelector('#addBtn');
 const list = document.querySelector('#list');
 
-const listArray = JSON.parse(localStorage.getItem('Data')) || [];
+let listArray = JSON.parse(localStorage.getItem('Data')) || [];
 display();
 
 addBtn.addEventListener('click', e => {
@@ -10,16 +10,20 @@ addBtn.addEventListener('click', e => {
     addTask();
 });
 
-function addTask(){
-    const taskInput = task.value;
+function addTask(taskInput){
+    taskInput = task.value.trim();
 
-    createList(taskInput);
+    if(taskInput.length > 0){
+      listArray.push(taskInput);
 
-    listArray.push(taskInput);
+      storeArray(listArray);
 
-    storeArray(listArray);
+      list.append(createList(taskInput));
 
-    task.value = "";
+      task.value = "";
+    } else {
+      alert('Please Add a Task')
+    }
 }
 
 function createList(input){
@@ -34,18 +38,20 @@ function createList(input){
     delBtn.classList.add('delBtn');
     
     newList.append(delBtn);
-    
-    list.append(newList);
 
     delBtn.addEventListener('click', ()=>{
       deleteTask(newList);
+
     });
 
-    
+    return newList;
 }
 
 const deleteTask = item => {
+    let deletedItem = item.firstChild.textContent;
     item.remove();
+    listArray = listArray.filter(x => x !== deletedItem);
+    storeArray(listArray)
 }
 
 
@@ -55,7 +61,9 @@ function storeArray(arr){
 }
 
 function display(){
-    listArray.forEach(x => addTask(x))
+    listArray.forEach(x =>  list.append(createList(x)))
 }
+
+
 
 
