@@ -24,9 +24,19 @@ function addList(e){
 
   delBtn.textContent = "Delete";
 
-  delBtn.classList.add('delBtn')
+  delBtn.classList.add('delBtn');
+
+  delBtn.addEventListener('click', function (){
+    delTask(newList);
+  })
 
   newList.append(delBtn);
 
   list.append(newList);
+
+  task.value = "";
+}
+
+function delTask(item){
+  item.remove();
 }
