@@ -87,9 +87,10 @@ li{
   padding:0.5rem 1rem;
   box-shadow: 0 0 5px #cc00ff, 0 0 10px #8c00ff;
   border-radius:1rem;
-  list-style-type:circle;
+  background: rgba(140, 0, 255, 0.08);
   list-style-position: inside;
-  display:flex;
+  list-style-type: decimal;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
