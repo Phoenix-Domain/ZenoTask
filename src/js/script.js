@@ -1,6 +1,7 @@
 const task = document.querySelector('#task');
 const addBtn = document.querySelector('#addBtn');
 const list = document.querySelector('#list');
+const clearBtn = document.querySelector('#clearBtn');
 
 let listArray = JSON.parse(localStorage.getItem('Data')) || [];
 display();
@@ -63,6 +64,14 @@ function storeArray(arr){
 function display(){
     listArray.forEach(x =>  list.append(createList(x)))
 }
+
+clearBtn.addEventListener('click', () => {
+  while(list.firstChild){
+    list.removeChild(list.firstChild)
+  }
+  listArray = [];
+  localStorage.removeItem('Data');
+})
 
 
 

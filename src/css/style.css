@@ -93,6 +93,7 @@ li{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin:1rem;
 }
 .delBtn{
   padding:0.7rem 2rem;
@@ -104,4 +105,10 @@ li{
 .delBtn:hover{
   background-color: blue;
   color:white;
+}
+
+.clearBtn{
+  padding:1rem 1.5rem;
+  font-weight:bold;
+  margin-top:1rem;
 }
