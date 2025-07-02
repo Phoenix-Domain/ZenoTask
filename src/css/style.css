@@ -8,11 +8,14 @@
   rgb(140, 0, 255) 100%
 );
   --text-light: rgb(231, 219, 219);
-  --background:linear-gradient(145deg, #1c1c1c, #2a2a2a);
+  --background:linear-gradient(145deg, #1c1c1c, #2a2a2ae5,#000000);
+  --background-card:linear-gradient(145deg, #0e0d0d, #2a2a2ae5,#000000);
+
 }
 
 *{
   box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body{
@@ -21,18 +24,76 @@ body{
   height:100vh;
 }
 
+.btn{
+  padding: 0.5rem 1.5rem;
+  background: transparent;
+  color: whitesmoke;
+  border: 2px solid #cc00ff;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #cc00ff, 0 0 10px #8c00ff;
+  transition: all 0.3s ease;
+}
+.btn:hover{
+  background: #8c00ff;
+  
+  box-shadow: 0 0 9px #cc00ff, 0 0 20px #8c00ff, 0 0 30px #8c00ff;
+}
 .container{
   border-radius: 1rem;
-  max-width:70vw;
-  margin:auto;
+  width:fit-content;
+  margin: 0 auto;
   padding:2rem;
   color:var(--text-light);
-  background:var(--primary);
-  margin-top:25%;
+  background:var(--background-card);
+  border:1px solid whitesmoke;
+  box-shadow: 0 0 10px #cc00ff, 0 0 20px #8c00ff, 0 0 40px #8c00ff;
+}
+input{
+  padding:0.5rem 1rem;
+  border-radius:1rem;
+  background: transparent;
+  color: whitesmoke;
+  outline:none;
+  border: 2px solid #cc00ff;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 0 5px #cc00ff, 0 0 10px #8c00ff;
+  transition: all 0.3s ease;
 }
 
+input:focus{
+  background-color: whitesmoke;
+  color:#5d0772;
+}
+
+h2{
+    margin:0;
+}
+
+h1{
+  font-size: 2rem;
+}
+
+.tasks{
+  margin-top:2rem;
+}
+
+li{
+  font-size:1.2rem;
+  padding:0.5rem 1rem;
+  box-shadow: 0 0 5px #cc00ff, 0 0 10px #8c00ff;
+  border-radius:1rem;
+  list-style-type:circle;
+  list-style-position: inside;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .delBtn{
-  margin: 0.2rem 2rem;
   padding:0.7rem 2rem;
   border-radius:2rem;
   border:none;
