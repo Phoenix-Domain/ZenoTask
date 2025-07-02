@@ -48,7 +48,7 @@ body{
   padding:2rem;
   color:var(--text-light);
   background:var(--background-card);
-  border:1px solid whitesmoke;
+  border:1px solid #bf4cdb;
   box-shadow: 0 0 10px #cc00ff, 0 0 20px #8c00ff, 0 0 40px #8c00ff;
 }
 input{
