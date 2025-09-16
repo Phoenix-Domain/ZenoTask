@@ -6,8 +6,8 @@ interface ButtonType{
 
 function Button({ type, content, style }: ButtonType){
     return(
-        <button>
-
+        <button type={type} className={style}>
+            {content}
         </button>
     )
 }
