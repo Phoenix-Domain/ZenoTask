@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-interface HeaderProps{
+interface HeaderTypes{
     size: 1 | 2 | 3 | 4 | 5 | 6 ,
     content: string,
 } //Type for header object and props
@@ -17,30 +17,30 @@ class HeaderObject{
     }
 
     setFontStyle(){
-        if(this.size === 1){
-            this.headerFontStyle = `text-3xl font-bold`
-        }else if(this.size === 2){
-            this.headerFontStyle = `text-2xl font-semibold`
-        }else if(this.size === 3){
-            this.headerFontStyle = `text-xl font-semibold`
-        }else if(this.size === 4){
-            this.headerFontStyle = `text-md font-semibold`
-        }else if(this.size === 5){
-            this.headerFontStyle = `font-semibold`
-        }else if(this.size === 6){
-            this.headerFontStyle = `font-semibold`
-        }
+        const styles: Record<number, string> = {
+            1: 'text-3xl font-bold',
+            2: 'text-2xl font-semibold',
+            3: 'text-xl font-semibold',
+            4: 'text-md font-semibold',
+            5: 'font-semibold',
+            6: 'font-semibold',
+        };
+        this.headerFontStyle = styles[this.size] || '';
     } 
 }// Header object which accepts size, style and content parameters
 
-function Header({size, content}: HeaderProps){
+function Header({size, content}: HeaderTypes){
+    const createNewHeader = (): HeaderObject => new HeaderObject(size, content);
+
+    const [header, setHeader] = useState(createNewHeader);
+
     const Tag = `h${size}` as keyof HTMLElementTagNameMap;
     
-    const fontStyle = 
+    // const fontStyle = 
     
     return(
-        <Tag>
-            {content}
+        <Tag className={`${header.headerFontStyle}`}>
+            {header.content}
         </Tag>
     )
 }
