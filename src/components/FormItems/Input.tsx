@@ -6,7 +6,7 @@ type InputTypes = {
 
 function Input({type, id}: InputTypes){
     return(
-        <input id={id} type={type} className='block bg-gray-300 p-1'/>
+        <input id={id} type={type} className='block bg-gray-200 rounded p-1.5 text-gray-900'/>
     )
 }
 
