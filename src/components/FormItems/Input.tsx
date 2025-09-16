@@ -1,6 +1,10 @@
-function Input(){
+type InputTypes = {
+    type: string
+}
+
+function Input({type}: InputTypes){
     return(
-        <input />
+        <input type={type} className='block bg-gray-300 p-1'/>
     )
 }
 
