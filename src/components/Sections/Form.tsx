@@ -26,8 +26,8 @@ function Form(){
                     <Input type='text' id='priority' />
                 </div>
                 <div>
-                    <Label htmlFor='addNote' content='Add Note' />
-                    <textarea name='' id='addNote'></textarea>
+                    <Label htmlFor='addNote' content='Add Note:' />
+                    <textarea name='' id='addNote' className='block bg-gray-200 rounded p-1.5 text-gray-900 w-full'></textarea>
                 </div>
             </fieldset>
         </form>
