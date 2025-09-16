@@ -1,6 +1,6 @@
 interface HeaderProps{
     size: 1 | 2 | 3 | 4 | 5 | 6 ,
-    content: string
+    content: string,
 } //Type for header object and props
 
 type HeaderSize = {
@@ -9,6 +9,7 @@ type HeaderSize = {
 class HeaderObject{
     size: HeaderSize;
     content: string;
+    headerFontStyle?: string // Create key to hold header fontSize and fontStyle
 
     constructor(size: HeaderSize, content: string){
         this.size = size;
@@ -22,7 +23,10 @@ function Header({size, content}: HeaderProps){
     const Tag = `h${size}` as keyof HTMLElementTagNameMap;
     
     const styleHeader = (size: HeaderSize) => {
+        switch(size){
+            case 1:
 
+        }
     }
     return(
         <Tag>
