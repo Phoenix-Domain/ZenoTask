@@ -31,12 +31,10 @@ class HeaderObject{
 }// Header object which accepts size, and content parameters
 
 function Header({size, content}: HeaderTypes){
-    const createNewHeader = (): HeaderObject => new HeaderObject(size, content);// create new header based on size and content
-
-    const [header, setHeader] = useState(createNewHeader());// state to store header
+    const [header, setHeader] = useState(new HeaderObject(size, content));// state to store header
 
     useEffect(() => {
-        setHeader(createNewHeader());
+        setHeader(new HeaderObject(size, content));
     }, [size, content])// Render header whenever size or content changes
 
     const Tag = `h${size}` as keyof HTMLElementTagNameMap;
