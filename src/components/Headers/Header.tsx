@@ -15,7 +15,19 @@ class HeaderObject{
     }
 
     setFontStyle(){
-        if(this.size === 1){}
+        if(this.size === 1){
+            this.headerFontStyle = `text-3xl font-bold`
+        }else if(this.size === 2){
+            this.headerFontStyle = `text-2xl font-semibold`
+        }else if(this.size === 3){
+            this.headerFontStyle = `text-xl font-semibold`
+        }else if(this.size === 4){
+            this.headerFontStyle = `text-md font-semibold`
+        }else if(this.size === 5){
+            this.headerFontStyle = `font-semibold`
+        }else if(this.size === 6){
+            this.headerFontStyle = `font-semibold`
+        }
     } 
 }// Header object which accepts size, style and content parameters
 const testObj = new HeaderObject(1, 'Zenooo')
