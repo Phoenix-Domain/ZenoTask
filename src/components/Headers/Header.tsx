@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface HeaderProps{
     size: 1 | 2 | 3 | 4 | 5 | 6 ,
     content: string,
@@ -33,6 +35,8 @@ class HeaderObject{
 
 function Header({size, content}: HeaderProps){
     const Tag = `h${size}` as keyof HTMLElementTagNameMap;
+    
+    const fontStyle = 
     
     return(
         <Tag>
