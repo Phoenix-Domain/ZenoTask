@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,  useEffect } from 'react';
 
 interface HeaderTypes{
     size: 1 | 2 | 3 | 4 | 5 | 6 ,
@@ -24,20 +24,23 @@ class HeaderObject{
             4: 'text-md font-semibold',
             5: 'font-semibold',
             6: 'font-semibold',
-        };
-        this.headerFontStyle = styles[this.size] || '';
+        }; //Use object key value pairs to store sizes and their respective styles
+
+        this.headerFontStyle = styles[this.size] || ''; //locate style value based on size key and pass it to headerFontStyle
     } 
-}// Header object which accepts size, style and content parameters
+}// Header object which accepts size, and content parameters
 
 function Header({size, content}: HeaderTypes){
-    const createNewHeader = (): HeaderObject => new HeaderObject(size, content);
+    const createNewHeader = (): HeaderObject => new HeaderObject(size, content);// create new header based on size and content
 
-    const [header, setHeader] = useState(createNewHeader);
+    const [header, setHeader] = useState(createNewHeader());// state to store header
+
+    useEffect(() => {
+        setHeader(createNewHeader());
+    }, [size, content])// Render header whenever size or content changes
 
     const Tag = `h${size}` as keyof HTMLElementTagNameMap;
-    
-    // const fontStyle = 
-    
+        
     return(
         <Tag className={`${header.headerFontStyle}`}>
             {header.content}
