@@ -1,10 +1,12 @@
+type InputKeys = 'type' | 'id';
+
 type InputTypes = {
-    type: string
+    [k in InputKeys]: string
 }
 
-function Input({type}: InputTypes){
+function Input({type, id}: InputTypes){
     return(
-        <input type={type} className='block bg-gray-300 p-1'/>
+        <input id={id} type={type} className='block bg-gray-300 p-1'/>
     )
 }
 
