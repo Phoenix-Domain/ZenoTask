@@ -4,7 +4,7 @@ interface ButtonType{
     style: string
 }
 
-function Button(){
+function Button({ type, content, style }: ButtonType){
     return(
         <button>
 
