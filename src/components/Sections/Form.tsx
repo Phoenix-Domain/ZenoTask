@@ -3,12 +3,12 @@ import Input from "../FormItems/Input";
 
 function Form(){
     return(
-        <form action=''>
-            <fieldset className='border flex flex-col'>
+        <form action='' className='p-3'>
+            <fieldset className='border border-gray-600 flex flex-col p-3 bg-[rgb(13,21,39)] text-white w-fit mx-auto rounded-lg items-center shadow-[inset_4px_4px_4px_rgba(3,10,20,1)]'>
                 <legend className='font-bold'>
                     Add New Task
                 </legend>
-                dueDate
+                
                 <div>
                     <Label htmlFor='title' content='Title'/>
                     <Input type='text' id='title' />
