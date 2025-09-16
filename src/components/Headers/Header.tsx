@@ -11,9 +11,10 @@ class HeaderObject{
     content: string;
     headerFontStyle?: string // Create key to hold header fontSize and fontStyle
 
-    constructor(size: HeaderSize, content: string){
+    constructor(size: HeaderSize, content: string, headerFontStyle?: string){
         this.size = size;
         this.content = content;
+        this.headerFontStyle = headerFontStyle;
     }
 }// Header object which accepts size, style and content parameters
 
@@ -22,12 +23,6 @@ class HeaderObject{
 function Header({size, content}: HeaderProps){
     const Tag = `h${size}` as keyof HTMLElementTagNameMap;
     
-    const styleHeader = (size: HeaderSize) => {
-        switch(size){
-            case 1:
-
-        }
-    }
     return(
         <Tag>
             {content}
