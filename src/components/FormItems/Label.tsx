@@ -6,7 +6,7 @@ type LabelTypes = {
 
 function Label({ htmlFor, content}: LabelTypes){
     return(
-        <label htmlFor={htmlFor} className='font-semibold text-xl'>
+        <label htmlFor={htmlFor} className='font-semibold text-lg'>
             {content}
         </label>
     )
