@@ -1,5 +1,6 @@
 import './App.css'
 import StatsCard from './components/common/StatsCard'
+import TaskForm from './components/common/TaskForm'
 
 function App() {
  return(
@@ -28,6 +29,10 @@ function App() {
           statTitle='Value'
           statValue='$0.00'
         />
+      </section>
+
+      <section>
+        <TaskForm />
       </section>
     </main>
   </>
