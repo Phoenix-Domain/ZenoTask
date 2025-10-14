@@ -19,17 +19,17 @@ function App() {
     <main>
       <section className='flex justify-around my-20 gap-5 mx-5'>
         <StatsCard 
-        statTitle='Products'
+        statTitle='Tasks'
         statValue='0'
         />
         
         <StatsCard 
-          statTitle='Items'
+          statTitle='Tasks Pending'
           statValue='0'
         />
         <StatsCard 
-          statTitle='Value'
-          statValue='$0.00'
+          statTitle='Completed Tasks'
+          statValue='0'
         />
       </section>
 
