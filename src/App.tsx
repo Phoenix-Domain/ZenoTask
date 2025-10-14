@@ -31,7 +31,10 @@ function App() {
         />
       </section>
 
-      <section>
+      <section className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5'>
+        <h2 className='text-2xl font-bold'>
+          Add New task
+        </h2>
         <TaskForm />
       </section>
     </main>
