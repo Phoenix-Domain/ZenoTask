@@ -1,9 +1,9 @@
 
 interface Task{
     id: number
-    Title: string;
-    Priority: string;
-    Status: string;
+    title: string;
+    priority: string;
+    status: string;
 }
 interface TaskDisplayProps{
     tasks: Task[];
@@ -21,13 +21,13 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
                 </article> : tasks.map(task => (
                     <article key={task.id} className='flex justify-around m-2 border border-gray-400 gap-5 py-1 px-2 rounded-2xl bg-gray-300'>
                         <p className='font-bold'>
-                            {task.Title}
+                            {task.title}
                         </p>
                         <p>
-                            {task.Priority}
+                            {task.priority}
                         </p>
                         <p>
-                            {task.Status}
+                            {task.status}
                         </p>
 
                         <button className='font-bold text-gray-50 bg-red-500 px-2 rounded-md' onClick={() => {

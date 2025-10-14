@@ -3,9 +3,9 @@ import type { Dispatch, SetStateAction } from 'react'
 
 interface Task{
     id: number
-    Title: string;
-    Priority: string;
-    Status: string;
+    title: string;
+    priority: string;
+    status: string;
 }
 interface TaskFormProps{
     setTasks: Dispatch<SetStateAction<Task[]>>;
