@@ -1,5 +1,6 @@
 
 interface Task{
+    id: number
     Title: string;
     Priority: string;
     Status: string;
@@ -9,7 +10,7 @@ interface TaskDisplayProps{
 }
 
 function TaskDisplay({tasks}: TaskDisplayProps){
-    return(
+      return(
         <section>
             {
                 // Conditional statement to render and display tasks
@@ -17,7 +18,7 @@ function TaskDisplay({tasks}: TaskDisplayProps){
                     <p>No Tasks Yet.</p>
                     <h3>Fill form to add Task</h3>
                 </article> : tasks.map(task => (
-                    <article>
+                    <article key={task.id}>
                         <p>{task.Title}</p>
                         <p>{task.Priority}</p>
                         <p>{task.Status}</p>
