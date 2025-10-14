@@ -27,16 +27,25 @@ class TaskClass{
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [pendingCount, setPendingCount] = useState<number | undefined>(0)
+  const [pendingTasksCount, setPendingTasksCount] = useState<number>(0);
+  const [completedTasksCount, setCompletedTasksCount] = useState<number>(0);
 
   const handleDelete = (x: number): void => {
     setTasks(prevTask => prevTask.filter(task => task.id !== x))
   }
 
   useEffect(() => {
-    const count = tasks.filter(task => task.Status === 'pending').length;
-    setPendingCount(count);
+    const pendingCount = tasks.filter(task => task.Status === 'pending').length;
+    setPendingTasksCount(pendingCount);
+
+    const completedCount = tasks.filter(task => task.Status === 'completed').length;
+
+    setCompletedTasksCount(completedCount)
   }, [tasks])
+
+  const checkIncompleteCounts = (): number => {
+    return tasks.length - (pendingTasksCount + completedTasksCount)
+  }
   
 
  return(
@@ -59,11 +68,16 @@ function App() {
         
         <StatsCard 
           statTitle='Tasks Pending'
-          statValue={pendingCount}
+          statValue={pendingTasksCount}
         />
         <StatsCard 
           statTitle='Completed Tasks'
-          statValue={0}
+          statValue={completedTasksCount}
+        />
+
+        <StatsCard 
+          statTitle='Tasks Not Attempted'
+          statValue={checkIncompleteCounts()}
         />
       </section>
 
