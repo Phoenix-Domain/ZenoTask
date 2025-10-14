@@ -2,7 +2,7 @@ import './App.css'
 import StatsCard from './components/common/StatsCard'
 import TaskForm from './components/common/TaskForm'
 import TaskDisplay from './components/common/TaskDisplay'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface Task{
   id:number;
@@ -27,16 +27,17 @@ class TaskClass{
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [pendingCount, setPendingCount] = useState<number>()
+  const [pendingCount, setPendingCount] = useState<number | undefined>(0)
 
   const handleDelete = (x: number): void => {
     setTasks(prevTask => prevTask.filter(task => task.id !== x))
   }
 
-  function checkPendingCount(): number{
-
-    return 0
-  }
+  useEffect(() => {
+    const count = tasks.filter(task => task.Status === 'pending').length;
+    setPendingCount(count);
+  }, [tasks])
+  
 
  return(
   <>
@@ -58,7 +59,7 @@ function App() {
         
         <StatsCard 
           statTitle='Tasks Pending'
-          statValue={0}
+          statValue={pendingCount}
         />
         <StatsCard 
           statTitle='Completed Tasks'
