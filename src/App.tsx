@@ -14,6 +14,10 @@ interface Task{
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  const handleDelete = (x: number): void => {
+    setTasks(prevTask => prevTask.filter(task => task.id !== x))
+  }
+
  return(
   <>
     <header className='text-center'>
@@ -59,7 +63,7 @@ function App() {
             Manage your Tasks
           </p>
 
-          <TaskDisplay tasks={tasks}/>
+          <TaskDisplay tasks={tasks} handleDelete={handleDelete}/>
         </section>
       </section>
     </main>

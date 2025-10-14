@@ -6,10 +6,11 @@ interface Task{
     Status: string;
 }
 interface TaskDisplayProps{
-    tasks: Task[]
+    tasks: Task[];
+    handleDelete: (x: number) => void;
 }
 
-function TaskDisplay({tasks}: TaskDisplayProps){
+function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
       return(
         <section>
             {
@@ -29,7 +30,9 @@ function TaskDisplay({tasks}: TaskDisplayProps){
                             {task.Status}
                         </p>
 
-                        <button className='font-bold text-gray-50 bg-red-500 px-2 rounded-md'>
+                        <button className='font-bold text-gray-50 bg-red-500 px-2 rounded-md' onClick={() => {
+                            handleDelete(task.id)
+                        }}>
                             X
                         </button>
                     </article>
