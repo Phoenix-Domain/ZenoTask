@@ -100,7 +100,13 @@ function App() {
 
           <TaskDisplay tasks={tasks} handleDelete={handleDelete}/>
 
-          <button className='bg-blue-700 text-white w-fit px-16 py-2 m-auto rounded-xl' onClick={() => {setTasks([])}}>
+          <button className='bg-red-700 text-white w-fit px-16 py-2 m-auto rounded-xl' onClick={() => {
+            const canClearAll = confirm('Are you Sure you want to Clear All?');
+
+            if(canClearAll){
+              setTasks([])
+            }
+          }}>
             Clear All
           </button>
         </section>
