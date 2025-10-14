@@ -11,6 +11,20 @@ interface Task{
   Status: string;
 }
 
+class TaskObject{
+  id:number;
+  Title:string;
+  Priority:string;
+  Status:string;
+
+  constructor(id: number, Title: string, Priority: string, Status: string){
+    this.id = id;
+    this.Title = Title;
+    this.Priority = Priority;
+    this.Status = Status
+  }
+}
+
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -33,16 +47,16 @@ function App() {
       <section className='flex justify-around my-20 gap-5 mx-5'>
         <StatsCard 
         statTitle='Tasks'
-        statValue='0'
+        statValue={tasks.length}
         />
         
         <StatsCard 
           statTitle='Tasks Pending'
-          statValue='0'
+          statValue={0}
         />
         <StatsCard 
           statTitle='Completed Tasks'
-          statValue='0'
+          statValue={0}
         />
       </section>
 
