@@ -9,24 +9,24 @@ interface Task{
 }
 interface TaskFormProps{
     setTasks: Dispatch<SetStateAction<Task[]>>;
+    TaskClass: new (id: number, title: string, priority: string, status: string) => Task;
 }
 
-function TaskForm({ setTasks }: TaskFormProps){
+function TaskForm({ setTasks, TaskClass }: TaskFormProps){
     const [taskTitle, setTaskTitle] = useState<string>('');
 
     const [taskPriority, setTaskPriority] = useState<string>('');
 
     const [taskStatus, setTaskStatus] = useState<string>('');
 
+    const createNewTaskClass = () => {
+        return new TaskClass(Date.now(), taskTitle, taskPriority, taskStatus)
+    }
+
     const handleSubmit = (): void => {
         setTasks(prev => ([
             ...prev,
-            {
-                id: Date.now(),
-                Title: taskTitle,
-                Priority: taskPriority,
-                Status: taskStatus
-            }
+            createNewTaskClass()
         ]))
 
         setTaskTitle('')
