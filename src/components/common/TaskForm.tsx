@@ -53,18 +53,26 @@ function TaskForm({ setTasks, TaskClass }: TaskFormProps){
                     <label htmlFor="">
                         Priority Level
                     </label>
-                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2' value={taskPriority}   onChange={e => {
-                    setTaskPriority(e.target.value.trim())
-                }}/>
+                    <select name="" id=""  className='border block bg-gray-300 border-gray-400 rounded-xl p-2' value={taskPriority}  onChange={e => {
+                    setTaskPriority(e.target.value.trim())}}>
+                        <option value="select status">Select Priority Level</option>
+                        <option value="top">Top</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
                 </article>
 
                 <article>
                     <label htmlFor="">
                         Status
                     </label>
-                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2' value={taskStatus}  onChange={e => {
-                    setTaskStatus(e.target.value.trim())
-                }}/>
+                    <select name="" id=""  className='border block bg-gray-300 border-gray-400 rounded-xl p-2' value={taskStatus}  onChange={e => {
+                    setTaskStatus(e.target.value.trim())}}>
+                        <option value="select status">Select Status</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="not started">Not Started</option>
+                    </select>
                 </article>
             </section>
 
