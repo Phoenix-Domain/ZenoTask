@@ -5,7 +5,7 @@ interface StatsCardProps{
 
 function StatsCard({ statTitle, statValue }: StatsCardProps){
     return(
-        <article className='bg-gray-100 p-5 rounded-xl border border-gray-300'>
+        <article className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-full'>
             <p>
                 Total {statTitle}
             </p>
