@@ -4,7 +4,14 @@ import TaskForm from './components/common/TaskForm'
 import TaskDisplay from './components/common/TaskDisplay'
 import { useState } from 'react'
 
+interface Task{
+  Title: string;
+  Priority: string;
+  Status: string;
+}
+
 function App() {
+  const [tasks, setTasks] = useState<Task[]>([])
  return(
   <>
     <header className='text-center'>
