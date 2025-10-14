@@ -18,10 +18,20 @@ function TaskDisplay({tasks}: TaskDisplayProps){
                     <p>No Tasks Yet.</p>
                     <h3>Fill form to add Task</h3>
                 </article> : tasks.map(task => (
-                    <article key={task.id}>
-                        <p>{task.Title}</p>
-                        <p>{task.Priority}</p>
-                        <p>{task.Status}</p>
+                    <article key={task.id} className='flex justify-around m-2 border border-gray-400 gap-5 py-1 px-2 rounded-2xl bg-gray-300'>
+                        <p className='font-bold'>
+                            {task.Title}
+                        </p>
+                        <p>
+                            {task.Priority}
+                        </p>
+                        <p>
+                            {task.Status}
+                        </p>
+
+                        <button className='font-bold text-gray-50 bg-red-500 px-2 rounded-md'>
+                            X
+                        </button>
                     </article>
                 ))
             }

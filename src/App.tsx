@@ -50,7 +50,7 @@ function App() {
           <TaskForm setTasks={setTasks}/>
         </section>
 
-        <section className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5'>
+        <section className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-full flex flex-col gap-5'>
           <h2 className='text-2xl font-bold'>
             Task List
           </h2>
