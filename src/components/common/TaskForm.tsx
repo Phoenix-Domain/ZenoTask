@@ -1,6 +1,13 @@
+import { useState } from 'react';
 
+interface TaskFormProps{
+    setTasks: () => void;
+}
 
-function TaskForm(){
+function TaskForm({ setTasks }: TaskFormProps){
+    
+   
+
     return(
         <form action="" className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5'>
             <section>
