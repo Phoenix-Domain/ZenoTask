@@ -43,7 +43,7 @@ function App() {
     setCompletedTasksCount(completedCount)
   }, [tasks])
 
-  const checkIncompleteCounts = (): number => {
+  const checkUndoneTasksCounts = (): number => {
     return tasks.length - (pendingTasksCount + completedTasksCount)
   }
   
@@ -77,7 +77,7 @@ function App() {
 
         <StatsCard 
           statTitle='Tasks Not Attempted'
-          statValue={checkIncompleteCounts()}
+          statValue={checkUndoneTasksCounts()}
         />
       </section>
 
