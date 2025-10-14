@@ -6,27 +6,32 @@ import { useState, useEffect } from 'react'
 
 interface Task{
   id:number;
-  Title: string;
-  Priority: string;
-  Status: string;
+  title: string;
+  priority: string;
+  status: string;
 }
 
 class TaskClass{
   id:number;
-  Title:string;
-  Priority:string;
-  Status:string;
+  title:string;
+  priority:string;
+  status:string;
 
-  constructor(id: number, Title: string, Priority: string, Status: string){
+  constructor(id: number, title: string, priority: string, status: string){
     this.id = id;
-    this.Title = Title;
-    this.Priority = Priority;
-    this.Status = Status
+    this.title = title;
+    this.priority = priority;
+    this.status = status
   }
 }
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const savedTasks = localStorage.getItem('Tasks');
+
+    return savedTasks ? JSON.parse(savedTasks) : []
+  });
+  
   const [pendingTasksCount, setPendingTasksCount] = useState<number>(0);
   const [completedTasksCount, setCompletedTasksCount] = useState<number>(0);
 
@@ -35,10 +40,12 @@ function App() {
   }
 
   useEffect(() => {
-    const pendingCount = tasks.filter(task => task.Status === 'pending').length;
+    localStorage.setItem('Tasks', JSON.stringify(tasks));
+
+    const pendingCount = tasks.filter(task => task.status === 'pending').length;
     setPendingTasksCount(pendingCount);
 
-    const completedCount = tasks.filter(task => task.Status === 'completed').length;
+    const completedCount = tasks.filter(task => task.status === 'completed').length;
 
     setCompletedTasksCount(completedCount)
   }, [tasks])
