@@ -27,9 +27,15 @@ class TaskClass{
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [pendingCount, setPendingCount] = useState<number>()
 
   const handleDelete = (x: number): void => {
     setTasks(prevTask => prevTask.filter(task => task.id !== x))
+  }
+
+  function checkPendingCount(): number{
+
+    return 0
   }
 
  return(
