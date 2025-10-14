@@ -5,6 +5,7 @@ import TaskDisplay from './components/common/TaskDisplay'
 import { useState } from 'react'
 
 interface Task{
+  id:number;
   Title: string;
   Priority: string;
   Status: string;
