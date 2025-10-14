@@ -29,6 +29,9 @@ function TaskForm({ setTasks }: TaskFormProps){
             }
         ]))
 
+        setTaskTitle('')
+        setTaskPriority('')
+        setTaskStatus('')
     }
 
     return(
@@ -40,7 +43,7 @@ function TaskForm({ setTasks }: TaskFormProps){
                 <label htmlFor="">
                     Task Name:
                 </label>
-                <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2' onChange={e => {
+                <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2' value={taskTitle} onChange={e => {
                     setTaskTitle(e.target.value)
                 }}/>
             </section>
@@ -50,7 +53,7 @@ function TaskForm({ setTasks }: TaskFormProps){
                     <label htmlFor="">
                         Priority Level
                     </label>
-                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2'  onChange={e => {
+                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2' value={taskPriority}   onChange={e => {
                     setTaskPriority(e.target.value)
                 }}/>
                 </article>
@@ -59,7 +62,7 @@ function TaskForm({ setTasks }: TaskFormProps){
                     <label htmlFor="">
                         Status
                     </label>
-                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2'  onChange={e => {
+                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2' value={taskStatus}  onChange={e => {
                     setTaskStatus(e.target.value)
                 }}/>
                 </article>
