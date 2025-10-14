@@ -11,7 +11,7 @@ interface Task{
   Status: string;
 }
 
-class TaskObject{
+class TaskClass{
   id:number;
   Title:string;
   Priority:string;
@@ -65,7 +65,7 @@ function App() {
           <h2 className='text-2xl font-bold'>
             Add New task
           </h2>
-          <TaskForm setTasks={setTasks}/>
+          <TaskForm TaskClass={TaskClass} setTasks={setTasks}/>
         </section>
 
         <section className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-full flex flex-col gap-5'>
