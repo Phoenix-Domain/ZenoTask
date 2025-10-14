@@ -1,26 +1,47 @@
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 
 interface Task{
+    id: number
     Title: string;
     Priority: string;
     Status: string;
 }
 interface TaskFormProps{
-    setTasks: () => void;
+    setTasks: Dispatch<SetStateAction<Task[]>>;
 }
 
 function TaskForm({ setTasks }: TaskFormProps){
-    const [tasks, seTasks] = useState<Task>({Title: '', Priority: '', Status: ''})
+    const [taskTitle, setTaskTitle] = useState<string>('');
 
-    
+    const [taskPriority, setTaskPriority] = useState<string>('');
+
+    const [taskStatus, setTaskStatus] = useState<string>('');
+
+    const handleSubmit = (): void => {
+        setTasks(prev => ([
+            ...prev,
+            {
+                id: Date.now(),
+                Title: taskTitle,
+                Priority: taskPriority,
+                Status: taskStatus
+            }
+        ]))
+
+    }
 
     return(
-        <form action="" className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5'>
+        <form action="" className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5' onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+        }}>
             <section>
                 <label htmlFor="">
                     Task Name:
                 </label>
-                <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2'/>
+                <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2' onChange={e => {
+                    setTaskTitle(e.target.value)
+                }}/>
             </section>
 
             <section className='flex justify-around gap-5'>
@@ -28,18 +49,22 @@ function TaskForm({ setTasks }: TaskFormProps){
                     <label htmlFor="">
                         Priority Level
                     </label>
-                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2'/>
+                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2'  onChange={e => {
+                    setTaskPriority(e.target.value)
+                }}/>
                 </article>
 
                 <article>
                     <label htmlFor="">
                         Status
                     </label>
-                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2'/>
+                    <input type="text" className='border block bg-gray-300 border-gray-400 rounded-xl p-2'  onChange={e => {
+                    setTaskStatus(e.target.value)
+                }}/>
                 </article>
             </section>
 
-            <button className='bg-blue-700 text-white w-fit px-16 py-2 m-auto rounded-xl'>
+            <button className='bg-blue-700 text-white w-fit px-16 py-2 m-auto rounded-xl' type='submit'>
                 Submit
             </button>
         </form>
