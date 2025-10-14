@@ -11,7 +11,8 @@ interface Task{
 }
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([])
+  const [tasks, setTasks] = useState<Task[]>([]);
+
  return(
   <>
     <header className='text-center'>
@@ -45,7 +46,7 @@ function App() {
           <h2 className='text-2xl font-bold'>
             Add New task
           </h2>
-          <TaskForm />
+          <TaskForm setTasks={setTasks}/>
         </section>
 
         <section className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5'>
@@ -57,7 +58,7 @@ function App() {
             Manage your Tasks
           </p>
 
-          <TaskDisplay />
+          <TaskDisplay tasks={tasks}/>
         </section>
       </section>
     </main>

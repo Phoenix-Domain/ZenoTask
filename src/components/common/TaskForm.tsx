@@ -1,12 +1,18 @@
 import { useState } from 'react';
 
+interface Task{
+    Title: string;
+    Priority: string;
+    Status: string;
+}
 interface TaskFormProps{
     setTasks: () => void;
 }
 
 function TaskForm({ setTasks }: TaskFormProps){
+    const [tasks, seTasks] = useState<Task>({Title: '', Priority: '', Status: ''})
+
     
-   
 
     return(
         <form action="" className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5'>
