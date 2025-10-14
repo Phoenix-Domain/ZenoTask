@@ -1,6 +1,6 @@
 interface StatsCardProps{
     statTitle: string;
-    statValue?: number;
+    statValue: number;
 }
 
 function StatsCard({ statTitle, statValue }: StatsCardProps){
