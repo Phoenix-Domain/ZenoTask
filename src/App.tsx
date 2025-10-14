@@ -1,6 +1,7 @@
 import './App.css'
 import StatsCard from './components/common/StatsCard'
 import TaskForm from './components/common/TaskForm'
+import TaskDisplay from './components/common/TaskDisplay'
 
 function App() {
  return(
@@ -36,6 +37,10 @@ function App() {
           Add New task
         </h2>
         <TaskForm />
+      </section>
+
+      <section className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5'>
+        <TaskDisplay />
       </section>
     </main>
   </>
