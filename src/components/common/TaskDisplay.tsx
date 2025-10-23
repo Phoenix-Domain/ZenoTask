@@ -19,7 +19,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
                     <p>No Tasks Yet.</p>
                     <h3>Fill form to add Task</h3>
                 </article> : tasks.map(task => (
-                    <article key={task.id} className='flex justify-around m-2 border border-gray-400 gap-5 py-1 px-2 rounded-2xl bg-gray-300'>
+                    <article key={task.id} className='flex justify-around m-2 border border-gray-400 gap-5 py-1 px-2 rounded-2xl bg-gray-300 items-center'>
                         <p className='font-bold'>
                             {task.title}
                         </p>
@@ -30,11 +30,17 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
                             {task.status}
                         </p>
 
-                        <button className='font-bold text-gray-50 bg-red-500 px-2 rounded-md' onClick={() => {
-                            handleDelete(task.id)
-                        }}>
-                            X
-                        </button>
+                        <article className='flex gap-2 justify-between'>
+                            <button  className='bg-blue-700 text-white w-fit px-4 py-2 m-auto rounded-xl'>
+                                Edit
+                            </button>
+
+                            <button className='font-bold text-gray-50 bg-red-500 px-2 rounded-md' onClick={() => {
+                                handleDelete(task.id)
+                            }}>
+                                X
+                            </button>
+                        </article>
                     </article>
                 ))
             }
