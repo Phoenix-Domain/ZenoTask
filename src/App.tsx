@@ -2,6 +2,8 @@ import './App.css'
 import StatsCard from './components/common/StatsCard'
 import TaskForm from './components/common/TaskForm'
 import TaskDisplay from './components/common/TaskDisplay'
+import TaskFilter from './components/common/TaskFilter'
+
 import { useState, useEffect } from 'react'
 
 interface Task{
@@ -117,6 +119,10 @@ function App() {
             Clear All
           </button>
         </section>
+      </section>
+
+      <section>
+        <TaskFilter />
       </section>
     </main>
   </>
