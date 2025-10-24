@@ -51,7 +51,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
                                 Edit
                             </button>
 
-                            <button className='font-bold text-gray-50 bg-red-500 px-2 rounded-md' onClick={() => {
+                            <button className='text-gray-50 bg-red-500 rounded-lg px-3 py-1 w-fit' onClick={() => {
                                 const confirmDeletion = confirm("Deleting this task will remove it from all Task lists.\n Are you sure?")
                                 
                                 if(confirmDeletion){
