@@ -1,6 +1,16 @@
 import { useState } from 'react';
 
-function EditTaskForm(){
+interface Task{
+    id: number
+    title: string;
+    priority: string;
+    status: string;
+}
+interface EditTaskFormProps{
+    tasks: Task[]
+}
+
+function EditTaskForm({ tasks }: EditTaskFormProps){
     const [edittedTaskTitle, setEdittedTaskTitle] = useState<string>('');
 
     const [edittedTaskPriority, setEdittedTaskPriority] = useState<string>('');

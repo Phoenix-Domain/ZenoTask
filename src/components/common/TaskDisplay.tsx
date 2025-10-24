@@ -60,7 +60,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
             }
 
             {
-                showEditForm && <EditTaskForm />
+                showEditForm && <EditTaskForm tasks={tasks}/>
             }
         </section>
     )
