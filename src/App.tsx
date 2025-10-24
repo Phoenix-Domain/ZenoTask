@@ -122,7 +122,7 @@ function App() {
       </section>
 
       <section>
-        <TaskFilter tasks={tasks}/>
+        <TaskFilter tasks={tasks} handleDelete={handleDelete}/>
       </section>
     </main>
   </>
