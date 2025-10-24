@@ -23,7 +23,7 @@ function EditTaskForm({ tasks }: EditTaskFormProps){
     }
 
     return(
-        <form action="" className='bg-gray-800 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5' onSubmit={(e) => {
+        <form action="" className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2' onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
         }}>
