@@ -1,17 +1,6 @@
 import { useState } from 'react';
-import type { Dispatch, SetStateAction } from 'react'
 
-interface Task{
-    id: number
-    title: string;
-    priority: string;
-    status: string;
-}
-interface EditTaskFormProps{
-    setTasks: Dispatch<SetStateAction<Task[]>>;
-}
-
-function EditTaskForm({ setTasks }: EditTaskFormProps){
+function EditTaskForm(){
     const [edittedTaskTitle, setEdittedTaskTitle] = useState<string>('');
 
     const [edittedTaskPriority, setEdittedTaskPriority] = useState<string>('');
@@ -24,7 +13,7 @@ function EditTaskForm({ setTasks }: EditTaskFormProps){
     }
 
     return(
-        <form action="" className='bg-gray-100 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5' onSubmit={(e) => {
+        <form action="" className='bg-gray-800 p-5 rounded-xl border border-gray-300 w-fit flex flex-col gap-5' onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
         }}>

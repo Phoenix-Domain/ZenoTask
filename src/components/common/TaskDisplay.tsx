@@ -1,3 +1,5 @@
+import EditTaskForm from './EditTaskForm';
+import { useState } from 'react';
 
 interface Task{
     id: number
@@ -11,6 +13,12 @@ interface TaskDisplayProps{
 }
 
 function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
+    const [showEditForm, setShowEditForm] = useState<boolean>(false);
+
+    const toggleEditForm = (): void => {
+        setShowEditForm(true)
+    }
+
       return(
         <section>
             {
@@ -32,7 +40,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
 
                         <article className='flex gap-2 justify-between'>
                             <button  className='bg-blue-700 text-white w-fit px-4 py-2 m-auto rounded-xl' onClick={() => {
-                                
+                                toggleEditForm()
                             }}>
                                 Edit
                             </button>
@@ -49,6 +57,10 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
                         </article>
                     </article>
                 ))
+            }
+
+            {
+                showEditForm && <EditTaskForm />
             }
         </section>
     )
