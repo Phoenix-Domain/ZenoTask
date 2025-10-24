@@ -122,7 +122,7 @@ function App() {
       </section>
 
       <section>
-        <TaskFilter />
+        <TaskFilter tasks={tasks}/>
       </section>
     </main>
   </>

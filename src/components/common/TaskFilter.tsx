@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 function TaskFilter(){
+    //get the filter method
+    //display a list of tasks based on the filter
     return(
         <section className='m-2 border border-gray-400 py-1 px-2 rounded-2xl bg-gray-300'>
             <article className='text-center'>
