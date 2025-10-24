@@ -21,7 +21,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
     }
 
     const toggleEditForm = (id: number): void => {
-        setShowEditForm(!showEditForm);
+        setShowEditForm(true);
         setSelectedTaskId(getTaskId(id));
     }
 
