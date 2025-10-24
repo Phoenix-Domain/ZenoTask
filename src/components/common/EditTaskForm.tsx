@@ -39,6 +39,9 @@ function EditTaskForm({ taskId, tasks, setShowEditForm }: EditTaskFormProps){
                 e.preventDefault();
                 handleSubmit();
             }}>
+                <h2 className='font-semibold text-3xl text-center'>
+                    Edit Your Task
+                </h2>
                 <section>
                     <label htmlFor="">
                         Task Name:
