@@ -31,7 +31,9 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
                         </p>
 
                         <article className='flex gap-2 justify-between'>
-                            <button  className='bg-blue-700 text-white w-fit px-4 py-2 m-auto rounded-xl'>
+                            <button  className='bg-blue-700 text-white w-fit px-4 py-2 m-auto rounded-xl' onClick={() => {
+                                
+                            }}>
                                 Edit
                             </button>
 
