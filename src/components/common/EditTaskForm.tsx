@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
 interface Task{
@@ -14,6 +14,18 @@ interface EditTaskFormProps{
 }
 
 function EditTaskForm({ taskId, tasks, setShowEditForm }: EditTaskFormProps){
+    const [selectedTask, setSelectedTask] = useState<Task>({id: 0, title: '', priority: '', status: ''})
+
+    useEffect(() => {
+        const task: Task = (tasks.filter(task => task.id === taskId))[0];
+
+        setSelectedTask(task);
+        setEdittedTaskTitle(task.title);
+        setEdittedTaskPriority(task.priority);
+        setEdittedTaskStatus(task.status);
+    }, [tasks, taskId])
+
+    console.log(selectedTask)
     const [edittedTaskTitle, setEdittedTaskTitle] = useState<string>('');
 
     const [edittedTaskPriority, setEdittedTaskPriority] = useState<string>('');
@@ -25,7 +37,7 @@ function EditTaskForm({ taskId, tasks, setShowEditForm }: EditTaskFormProps){
     }
 
     const handleSubmit = (): void => {
-        console.log(tasks, taskId)
+        
     }
 
     return(
