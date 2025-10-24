@@ -1,6 +1,16 @@
 import { useState } from 'react';
 
-function TaskFilter(){
+interface Task{
+    id:number;
+    title: string;
+    priority: string;
+    status: string;
+}
+interface TaskFilterProps{
+    tasks: Task[]
+}
+
+function TaskFilter({ tasks }: TaskFilterProps){
     //get the filter method
     //display a list of tasks based on the filter
     return(
