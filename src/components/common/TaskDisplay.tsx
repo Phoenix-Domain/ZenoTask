@@ -16,7 +16,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
     const [showEditForm, setShowEditForm] = useState<boolean>(false);
 
     const toggleEditForm = (): void => {
-        setShowEditForm(true)
+        setShowEditForm(!showEditForm)
     }
 
       return(
