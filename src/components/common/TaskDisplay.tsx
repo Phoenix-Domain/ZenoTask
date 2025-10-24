@@ -14,9 +14,15 @@ interface TaskDisplayProps{
 
 function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
     const [showEditForm, setShowEditForm] = useState<boolean>(false);
+    const [selectedTaskId, setSelectedTaskId] = useState<number>(0)
 
-    const toggleEditForm = (): void => {
-        setShowEditForm(!showEditForm)
+    const getTaskId = (x: number): number => {
+        return x
+    }
+
+    const toggleEditForm = (id: number): void => {
+        setShowEditForm(!showEditForm);
+        setSelectedTaskId(getTaskId(id));
     }
 
       return(
@@ -40,7 +46,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
 
                         <article className='flex gap-2 justify-between'>
                             <button  className='bg-blue-700 text-white w-fit px-4 py-2 m-auto rounded-xl' onClick={() => {
-                                toggleEditForm()
+                                toggleEditForm(task.id);
                             }}>
                                 Edit
                             </button>
@@ -60,7 +66,7 @@ function TaskDisplay({tasks, handleDelete}: TaskDisplayProps){
             }
 
             {
-                showEditForm && <EditTaskForm tasks={tasks}/>
+                showEditForm && <EditTaskForm taskId={selectedTaskId}  tasks={tasks}/>
             }
         </section>
     )

@@ -7,10 +7,11 @@ interface Task{
     status: string;
 }
 interface EditTaskFormProps{
+    taskId: number;
     tasks: Task[]
 }
 
-function EditTaskForm({ tasks }: EditTaskFormProps){
+function EditTaskForm({ taskId, tasks }: EditTaskFormProps){
     const [edittedTaskTitle, setEdittedTaskTitle] = useState<string>('');
 
     const [edittedTaskPriority, setEdittedTaskPriority] = useState<string>('');
@@ -19,7 +20,7 @@ function EditTaskForm({ tasks }: EditTaskFormProps){
 
 
     const handleSubmit = (): void => {
-        
+        console.log(tasks, taskId)
     }
 
     return(
