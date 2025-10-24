@@ -11,6 +11,7 @@ interface TaskFilterProps{
 }
 
 function TaskFilter({ tasks }: TaskFilterProps){
+    const [filter, setFilter] = useState<string>('');
     //get the filter method
     //display a list of tasks based on the filter
     return(
@@ -19,7 +20,12 @@ function TaskFilter({ tasks }: TaskFilterProps){
                 <label htmlFor='Filter' className=''>
                     Filter Tasks by:
                 </label>
-                <select id="Filter" className='font-bold ml-3 rounded-2xl bg-blue-700 p-1 text-white outline-0'>
+                <select id="Filter" className='font-bold ml-3 rounded-2xl bg-blue-700 p-1 text-white outline-0'
+                value={filter}
+                onChange={(e) => {
+                    setFilter(e.target.value);
+                }}
+                >
                     <option value="Select filter">Select filter</option>
                     <option value="name">Name</option>
                     <option value="priority">Priority</option>
